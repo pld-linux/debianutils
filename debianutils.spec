@@ -31,6 +31,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# which.spec is more advanced and is binary
+rm -rf $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/{fr/,}man1}/which*
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -42,14 +45,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/sensible-editor
 %attr(755,root,root) %{_bindir}/sensible-pager
 %attr(755,root,root) %{_bindir}/tempfile
-%attr(755,root,root) %{_bindir}/which
 %attr(755,root,root) %{_sbindir}/add-shell
 %attr(755,root,root) %{_sbindir}/installkernel
 %attr(755,root,root) %{_sbindir}/mkboot
 %attr(755,root,root) %{_sbindir}/remove-shell
 %{_mandir}/man1/sensible-editor.1*
 %{_mandir}/man1/tempfile.1*
-%{_mandir}/man1/which.1*
 %{_mandir}/man8/add-shell.8*
 %{_mandir}/man8/installkernel.8*
 %{_mandir}/man8/mkboot.8*
@@ -58,7 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/savelog.8*
 %lang(fr) %{_mandir}/fr/man1/sensible-editor.1*
 %lang(fr) %{_mandir}/fr/man1/tempfile.1*
-%lang(fr) %{_mandir}/fr/man1/which.1*
 %lang(fr) %{_mandir}/fr/man8/add-shell.8*
 %lang(fr) %{_mandir}/fr/man8/installkernel.8*
 %lang(fr) %{_mandir}/fr/man8/mkboot.8*
