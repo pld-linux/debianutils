@@ -5,7 +5,7 @@ Release:	0.1
 License:	GPL v2+ / distributale
 Group:		Base
 Source0:	http://ftp.debian.org/debian/pool/main/d/debianutils/%{name}_%{version}.tar.gz
-# Source0-md5:	7e989a8b0562054aea22c654507f2cb5
+# Source0-md5:	7fdd5f8395162d8728d4b79e97b9819e
 URL:		http://git.debian.org/?p=private/schizo/debianutils.git
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -15,8 +15,7 @@ primarily by the installation scripts of Debian packages, although you
 may use them directly.
 
 The specific utilities included are: installkernel mkboot run-parts
-savelog sensible-browser sensible-editor sensible-pager tempfile
-which.
+savelog sensible-browser sensible-editor sensible-pager tempfile.
 
 %prep
 %setup -q
