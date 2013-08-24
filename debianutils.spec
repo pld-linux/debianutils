@@ -1,11 +1,12 @@
 Summary:	Miscellaneous utilities specific to Debian
+Summary(pl.UTF-8):	Różne narzędzia specyficzne dla Debiana
 Name:		debianutils
-Version:	2.30
-Release:	0.1
-License:	GPL v2+ / distributale
-Group:		Base
+Version:	4.4
+Release:	1
+License:	GPL v2+, distributale
+Group:		Applications
 Source0:	http://ftp.debian.org/debian/pool/main/d/debianutils/%{name}_%{version}.tar.gz
-# Source0-md5:	7fdd5f8395162d8728d4b79e97b9819e
+# Source0-md5:	c0cb076754d7f4eb1e3397d00916647f
 URL:		http://git.debian.org/?p=private/schizo/debianutils.git
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -14,8 +15,16 @@ This package provides a number of small utilities which are used
 primarily by the installation scripts of Debian packages, although you
 may use them directly.
 
-The specific utilities included are: installkernel mkboot run-parts
-savelog sensible-browser sensible-editor sensible-pager tempfile.
+The specific utilities included are: add-shell installkernel ischroot
+remove-shell run-parts savelog tempfile.
+
+%description -l pl.UTF-8
+Ten pakiet udostępnia kilka małych narzędzi które są używane głównie
+przez skrypty instalacyjne pakietów Debiana, aczkolwiek możesz używać
+ich bezpośrednio.
+
+Te specyficzne narzędzia to: add-shell installkernel ischroot
+remove-shell run-parts savelog tempfile.
 
 %prep
 %setup -q
@@ -31,36 +40,66 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # which.spec is more advanced and is binary
-rm -rf $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/{fr/,}man1}/which*
+%{__rm} -r $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/{*/,}man1}/which*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/ischroot
 %attr(755,root,root) %{_bindir}/run-parts
 %attr(755,root,root) %{_bindir}/savelog
-%attr(755,root,root) %{_bindir}/sensible-browser
-%attr(755,root,root) %{_bindir}/sensible-editor
-%attr(755,root,root) %{_bindir}/sensible-pager
 %attr(755,root,root) %{_bindir}/tempfile
 %attr(755,root,root) %{_sbindir}/add-shell
 %attr(755,root,root) %{_sbindir}/installkernel
-%attr(755,root,root) %{_sbindir}/mkboot
 %attr(755,root,root) %{_sbindir}/remove-shell
-%{_mandir}/man1/sensible-editor.1*
+%{_mandir}/man1/ischroot.1*
 %{_mandir}/man1/tempfile.1*
 %{_mandir}/man8/add-shell.8*
 %{_mandir}/man8/installkernel.8*
-%{_mandir}/man8/mkboot.8*
 %{_mandir}/man8/remove-shell.8*
 %{_mandir}/man8/run-parts.8*
 %{_mandir}/man8/savelog.8*
-%lang(fr) %{_mandir}/fr/man1/sensible-editor.1*
+%lang(de) %{_mandir}/de/man1/tempfile.1*
+%lang(de) %{_mandir}/de/man8/add-shell.8*
+%lang(de) %{_mandir}/de/man8/installkernel.8*
+%lang(de) %{_mandir}/de/man8/remove-shell.8*
+%lang(de) %{_mandir}/de/man8/run-parts.8*
+%lang(de) %{_mandir}/de/man8/savelog.8*
+%lang(es) %{_mandir}/es/man1/tempfile.1*
+%lang(es) %{_mandir}/es/man8/add-shell.8*
+%lang(es) %{_mandir}/es/man8/installkernel.8*
+%lang(es) %{_mandir}/es/man8/remove-shell.8*
+%lang(es) %{_mandir}/es/man8/run-parts.8*
+%lang(es) %{_mandir}/es/man8/savelog.8*
 %lang(fr) %{_mandir}/fr/man1/tempfile.1*
 %lang(fr) %{_mandir}/fr/man8/add-shell.8*
 %lang(fr) %{_mandir}/fr/man8/installkernel.8*
-%lang(fr) %{_mandir}/fr/man8/mkboot.8*
 %lang(fr) %{_mandir}/fr/man8/remove-shell.8*
 %lang(fr) %{_mandir}/fr/man8/run-parts.8*
 %lang(fr) %{_mandir}/fr/man8/savelog.8*
+%lang(it) %{_mandir}/it/man1/tempfile.1*
+%lang(it) %{_mandir}/it/man8/add-shell.8*
+%lang(it) %{_mandir}/it/man8/installkernel.8*
+%lang(it) %{_mandir}/it/man8/remove-shell.8*
+%lang(it) %{_mandir}/it/man8/run-parts.8*
+%lang(it) %{_mandir}/it/man8/savelog.8*
+%lang(ja) %{_mandir}/ja/man1/tempfile.1*
+%lang(ja) %{_mandir}/ja/man8/add-shell.8*
+%lang(ja) %{_mandir}/ja/man8/installkernel.8*
+%lang(ja) %{_mandir}/ja/man8/remove-shell.8*
+%lang(ja) %{_mandir}/ja/man8/run-parts.8*
+%lang(ja) %{_mandir}/ja/man8/savelog.8*
+%lang(pl) %{_mandir}/pl/man1/tempfile.1*
+%lang(pl) %{_mandir}/pl/man8/add-shell.8*
+%lang(pl) %{_mandir}/pl/man8/installkernel.8*
+%lang(pl) %{_mandir}/pl/man8/remove-shell.8*
+%lang(pl) %{_mandir}/pl/man8/run-parts.8*
+%lang(pl) %{_mandir}/pl/man8/savelog.8*
+%lang(sl) %{_mandir}/sl/man1/tempfile.1*
+%lang(sl) %{_mandir}/sl/man8/add-shell.8*
+%lang(sl) %{_mandir}/sl/man8/installkernel.8*
+%lang(sl) %{_mandir}/sl/man8/remove-shell.8*
+%lang(sl) %{_mandir}/sl/man8/run-parts.8*
+%lang(sl) %{_mandir}/sl/man8/savelog.8*
