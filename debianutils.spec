@@ -30,12 +30,12 @@ remove-shell run-parts savelog tempfile.
 %setup -q
 
 %build
+CPPFLAGS="-D_LARGEFILE_SOURCE=1 -D_FILE_OFFSET_BITS=64"
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
