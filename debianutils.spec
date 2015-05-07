@@ -1,13 +1,15 @@
 Summary:	Miscellaneous utilities specific to Debian
 Summary(pl.UTF-8):	Różne narzędzia specyficzne dla Debiana
 Name:		debianutils
-Version:	4.4
-Release:	2
+Version:	4.5
+Release:	1
 License:	GPL v2+, distributale
 Group:		Applications
-Source0:	http://ftp.debian.org/debian/pool/main/d/debianutils/%{name}_%{version}.tar.gz
-# Source0-md5:	c0cb076754d7f4eb1e3397d00916647f
+Source0:	http://ftp.debian.org/debian/pool/main/d/debianutils/%{name}_%{version}.tar.xz
+# Source0-md5:	43796250e927db531cdebe80c6b925ea
 URL:		http://git.debian.org/?p=private/schizo/debianutils.git
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
