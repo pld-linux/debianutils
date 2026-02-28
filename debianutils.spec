@@ -2,7 +2,7 @@ Summary:	Miscellaneous utilities specific to Debian
 Summary(pl.UTF-8):	Różne narzędzia specyficzne dla Debiana
 Name:		debianutils
 Version:	4.8
-Release:	1
+Release:	2
 License:	GPL v2+, distributale
 Group:		Applications
 Source0:	http://ftp.debian.org/debian/pool/main/d/debianutils/%{name}_%{version}.tar.xz
